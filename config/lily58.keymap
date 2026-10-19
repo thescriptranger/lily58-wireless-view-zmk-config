@@ -8,6 +8,15 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    macros {
+        clear_terminal: clear_terminal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp C &kp L &kp E &kp A &kp R &kp ENTER &kp ENTER>;
+            label = "CLEAR_TERMINAL";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -41,11 +50,11 @@
 
             display-name = "Lower";
             bindings = <
-&kp ESC    &kp F1           &kp F2            &kp F3             &kp F4                &kp F5                                   &kp F6        &kp F7        &kp F8        &kp F9      &kp F10       &kp F11
-&kp GRAVE  &kp EXCLAMATION  &kp AT_SIGN       &kp HASH           &kp DOLLAR            &kp PERCENT                              &kp N7        &kp N8        &kp N9        &kp MINUS   &kp SLASH     &kp F12
-&kp GRAVE  &kp CARET        &kp AMPERSAND     &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                    &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PLUS    &kp ASTERISK  &kp BACKSPACE
-&trans     &trans           &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans    &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp EQUAL     &kp ENTER
-                                              &trans             &trans                &trans                 &trans    &trans  &kp N0        &trans        &trans
+&kp ESC          &kp F1           &kp F2            &kp F3             &kp F4                &kp F5                                   &kp F6        &kp F7        &kp F8        &kp F9      &kp F10       &kp F11
+&kp GRAVE        &kp EXCLAMATION  &kp AT_SIGN       &kp HASH           &kp DOLLAR            &kp PERCENT                              &kp N7        &kp N8        &kp N9        &kp MINUS   &kp SLASH     &kp F12
+&kp GRAVE        &kp CARET        &kp AMPERSAND     &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                    &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PLUS    &kp ASTERISK  &kp BACKSPACE
+&clear_terminal  &trans           &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans    &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp EQUAL     &kp ENTER
+                                                    &trans             &trans                &trans                 &trans    &trans  &kp N0        &trans        &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
